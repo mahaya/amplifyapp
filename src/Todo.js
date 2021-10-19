@@ -64,3 +64,5 @@ class TodoApp extends React.Component {
     <TodoApp />,
     document.getElementById('todos-example')
   );
+
+  export default TodoApp;
