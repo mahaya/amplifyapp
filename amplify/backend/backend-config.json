@@ -49,5 +49,11 @@
       "service": "S3AndCloudFront",
       "providerPlugin": "awscloudformation"
     }
+  },
+  "storage": {
+    "s31d737b1f": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }
