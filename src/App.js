@@ -58,26 +58,26 @@ function App() {
       <h1>Relationship Tracking Database Update App</h1>
       <input
         onChange={e => setFormData({ ...formData, 'name': e.target.value})}
-        placeholder="Note name"
+        placeholder="Participant ID"
         value={formData.name}
       />
       <input
         onChange={e => setFormData({ ...formData, 'description': e.target.value})}
-        placeholder="Note description"
+        placeholder="Status"
         value={formData.description}
       />
       <input
         type="file"
         onChange={onChange}
       />
-      <button onClick={createNote}>Create Note</button>
+      <button onClick={createNote}>Update Status</button>
       <div style={{marginBottom: 30}}>
       {
         notes.map(note => (
           <div key={note.id || note.name}>
             <h2>{note.name}</h2>
             <p>{note.description}</p>
-            <button onClick={() => deleteNote(note)}>Delete note</button>
+            <button onClick={() => deleteNote(note)}>Delete Record</button>
             {
               note.image && <img src={note.image} style={{width: 400}} />
             }
