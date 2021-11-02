@@ -89,9 +89,6 @@ function App() {
             <button onClick={() => deleteNote(note)}>Delete Record</button>
             </li>
             </ul>
-            {
-              note.image && <img src={note.image} style={{width: 400}} />
-            }
           </div>
         ))
       }
