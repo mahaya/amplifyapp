@@ -56,6 +56,7 @@ function App() {
   return (
     <div className="App">
       <h1>Relationship Tracking Database Update App</h1>
+      <AmplifySignOut />
       <input
         onChange={e => setFormData({ ...formData, 'name': e.target.value})}
         placeholder="Participant ID"
@@ -65,6 +66,11 @@ function App() {
         onChange={e => setFormData({ ...formData, 'description': e.target.value})}
         placeholder="Status"
         value={formData.description}
+      />
+      <input
+        onChange={e => setFormData({ ...formData, 'ssn': e.target.value})}
+        placeholder="SSN"
+        value={formData.ssn}
       />
       <input
         type="file"
@@ -77,6 +83,7 @@ function App() {
           <div key={note.id || note.name}>
             <h2>{note.name}</h2>
             <p>{note.description}</p>
+            <p>{note.ssn}</p>
             <button onClick={() => deleteNote(note)}>Delete Record</button>
             {
               note.image && <img src={note.image} style={{width: 400}} />
@@ -91,3 +98,4 @@ function App() {
 }
 
 export default withAuthenticator(App);
+//export default App;
