@@ -56,7 +56,7 @@ function App() {
   return (
     <div className="App">
       <h1>Relationship Tracking Database Update App</h1>
-      <AmplifySignOut />
+      
       <input
         onChange={e => setFormData({ ...formData, 'name': e.target.value})}
         placeholder="Participant ID"
@@ -81,10 +81,14 @@ function App() {
       {
         notes.map(note => (
           <div key={note.id || note.name}>
-            <h2>{note.name}</h2>
-            <p>{note.description}</p>
-            <p>{note.ssn}</p>
+            <ul>
+            <li alignment="left">
+            {note.name}&emsp;
+            {note.description}&emsp;
+            {note.ssn}&emsp;
             <button onClick={() => deleteNote(note)}>Delete Record</button>
+            </li>
+            </ul>
             {
               note.image && <img src={note.image} style={{width: 400}} />
             }
