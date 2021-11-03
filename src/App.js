@@ -6,6 +6,14 @@ import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } fr
 import { API, Storage } from 'aws-amplify';
 
 const initialFormState = { name: '', description: '' }
+const mystyle = {
+  color: "black",
+  backgroundColor: "DodgerBlue",
+  padding: "10px",
+  fontFamily: "Arial",
+  textAlign: "left",
+  width: "80%"
+};
 
 function App() {
   const [notes, setNotes] = useState([]);
@@ -54,9 +62,11 @@ function App() {
   }
 
   return (
-    <div className="App">
-      <h1>Relationship Tracking Database Update App</h1>
-      
+    <div className="App" style={mystyle}>
+      <img src={"https://www.mutualofamerica.com/Scripts/MoaCommon/css/images/Masthead.png"}></img>
+      <h1 color={"black"}>Relationship Tracking Database Update App</h1>
+      <table>
+      <tr>
       <input
         onChange={e => setFormData({ ...formData, 'name': e.target.value})}
         placeholder="Participant ID"
@@ -76,19 +86,21 @@ function App() {
         type="file"
         onChange={onChange}
       />
+      </tr>
+      </table>
       <button onClick={createNote}>Update Status</button>
       <div style={{marginBottom: 30}}>
       {
         notes.map(note => (
           <div key={note.id || note.name}>
-            <ul>
-            <li alignment="left">
-            {note.name}&emsp;
-            {note.description}&emsp;
-            {note.ssn}&emsp;
-            <button onClick={() => deleteNote(note)}>Delete Record</button>
-            </li>
-            </ul>
+            <table style={mystyle}>
+            <tr>
+            <td width={"25%"}>{note.name}&emsp;</td>
+            <td width={"25%"}>{note.description}&emsp;</td>
+            <td width={"25%"}>{note.ssn}&emsp;</td>     
+            <td width={"25%"}><button onClick={() => deleteNote(note)}>Delete Record</button></td>
+            </tr>
+            </table>
           </div>
         ))
       }
