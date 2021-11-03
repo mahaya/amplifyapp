@@ -67,37 +67,48 @@ function App() {
       <h1 color={"black"}>Relationship Tracking Database Update App</h1>
       <table>
       <tr>
+      <td width={"25%"}>
       <input
         onChange={e => setFormData({ ...formData, 'name': e.target.value})}
         placeholder="Participant ID"
         value={formData.name}
       />
+      </td>
+      <td width={"25%"}>
       <input
         onChange={e => setFormData({ ...formData, 'description': e.target.value})}
         placeholder="Status"
         value={formData.description}
       />
+      </td>
+      <td width={"25%"}>
       <input
         onChange={e => setFormData({ ...formData, 'ssn': e.target.value})}
         placeholder="SSN"
         value={formData.ssn}
       />
+      </td>
+      {/* <td>
       <input
         type="file"
         onChange={onChange}
       />
+      </td> */}
+      
+      <td width={"25%"}>
+      <button onClick={createNote}>Update Status</button>
+      </td>
       </tr>
       </table>
-      <button onClick={createNote}>Update Status</button>
       <div style={{marginBottom: 30}}>
       {
         notes.map(note => (
           <div key={note.id || note.name}>
             <table style={mystyle}>
             <tr>
-            <td width={"25%"}>{note.name}&emsp;</td>
-            <td width={"25%"}>{note.description}&emsp;</td>
-            <td width={"25%"}>{note.ssn}&emsp;</td>     
+            <td width={"25%"}>{note.name}</td>
+            <td width={"25%"}>{note.description}</td>
+            <td width={"25%"}>{note.ssn}</td>     
             <td width={"25%"}><button onClick={() => deleteNote(note)}>Delete Record</button></td>
             </tr>
             </table>
