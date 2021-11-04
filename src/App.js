@@ -4,6 +4,7 @@ import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 import { listNotes } from './graphql/queries';
 import { createNote as createNoteMutation, deleteNote as deleteNoteMutation } from './graphql/mutations';
 import { API, Storage } from 'aws-amplify';
+import Masthead from './Masthead.png'
 
 const initialFormState = { name: '', description: '' }
 const mystyle = {
@@ -63,7 +64,7 @@ function App() {
 
   return (
     <div className="App" style={mystyle}>
-      <img src={"https://www.mutualofamerica.com/Scripts/MoaCommon/css/images/Masthead.png"}></img>
+      <img src={Masthead}></img>
       <h1 color={"black"}>Relationship Tracking Database Update App</h1>
       <table>
       <tr>
